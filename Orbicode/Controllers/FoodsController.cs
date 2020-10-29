@@ -54,7 +54,7 @@ namespace Orbicode.Controllers
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,naziv,cijena,MyProperty,restoran")] Food food)
+        public async Task<IActionResult> Create([Bind("id,naziv,cijena,MyProperty,restoranId")] Food food)
         {
             try
             {

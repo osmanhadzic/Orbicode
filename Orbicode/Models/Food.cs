@@ -11,8 +11,8 @@ namespace Orbicode.Models
         public int id { get; set; }
         public string naziv { get; set; }
         public float cijena { get; set; }
-        [Display(Name  = "Ocjena")]
         public int MyProperty { get; set; }
+        public int restoranId { get; set; }
         public Restoran restoran{ get; set; }
     }
 }
