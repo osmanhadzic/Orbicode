@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Orbicode.Data;
+using Orbicode.Models;
 
 namespace Orbicode.Controllers
 {
@@ -17,15 +19,29 @@ namespace Orbicode.Controllers
         }
         public IActionResult Index()
         {
+           
             return View();
         }
 
-        public async Task<IActionResult> Find()
+        public async Task<IActionResult> Edit()
         {
-            // get numbers off rows in table food
-            var count = _context.foods.Count();
-            ViewData["Random"] = count;
-            return View();
+            int? id;
+            id = randomNumberGenerator();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var food = await _context.foods.FindAsync(id);
+            if (food == null)
+            {
+                return NotFound();
+            }
+            return View(food);
+        }
+        private int randomNumberGenerator()
+        {
+            return 1;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Orbicode.Data
         {
             modelBuilder.Entity<Restoran>().ToTable("Restoran");
             modelBuilder.Entity<Food>().ToTable("Food");
+            
         }
     }
 }

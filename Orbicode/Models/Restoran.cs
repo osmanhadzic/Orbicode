@@ -11,6 +11,8 @@ namespace Orbicode.Models
         public string naziv { get; set; }
         public string adresa { get; set; }
         public string brojTelefona { get; set; }
-        public Food food { get; set; }
+
+        public ICollection<Food> foods { get; set; }
+
     }
 }
