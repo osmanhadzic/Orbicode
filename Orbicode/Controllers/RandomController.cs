@@ -33,15 +33,19 @@ namespace Orbicode.Controllers
             }
 
             var food = await _context.foods.FindAsync(id);
+            
             if (food == null)
             {
                 return NotFound();
             }
+           var restId = food.restoranId;
+           var rest = await _context.restorans.FindAsync(restId);
+           ViewBag.Restoran = rest.naziv;
             return View(food);
         }
         private int randomNumberGenerator()
         {
-            return 1;
+            return 6;
         }
     }
 }
